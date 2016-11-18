@@ -33,13 +33,33 @@ class pizza{
   }
 
   price(){
-    return this.sizeCost() + this.meatToppingsCost() + this.veggieToppingsCost();
+    return this.sizeCost() + this.meatToppingsCost("meat") + this.veggieToppingsCost("veggie");
   }
+
+  addTopping(toptype, newtop){
+    if (toptype == "meat"){
+      this.meatToppings.push(newTop);
+    }
+    else if (toptype == "veggie"){
+      this.veggieToppings.push(newTop);
+    }
+  }
+
+  removeTopping(toptype, newtop){
+    if(toptype == "meat"){
+      let e = this.meatToppings.indexOf(newtop);
+      var n = this.meatToppings.splice(e,1);
+    }
+
+  }
+
 
 
   //type class functions below
 
-  static promotionalDeal(){
-    
+  static promotionalDeal(pizza, percent){
+    let z = 100-percent;
+    z = z/100;
+    return pizza.price()*z;
   }
 }
